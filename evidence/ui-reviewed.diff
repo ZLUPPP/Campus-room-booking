@@ -1,0 +1,32 @@
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -1,4 +1,4 @@
+-import { useMemo, useState } from 'react';
++import { useId, useMemo, useState } from 'react';
+ import { Clock, DoorClosed, CheckCircle2, XCircle, CalendarCheck, Building2 } from 'lucide-react';
+ import { evaluate, parseMinutes, toTime, type Decision, type Room } from '@/lib/availability';
+ 
+@@ -232,7 +232,7 @@
+         />
+       </div>
+ 
+-      <div className="mt-5">
++      <div className="mt-5" role="status" aria-atomic="true">
+         <DecisionBanner decision={decision} start={start} end={end} />
+       </div>
+     </div>
+@@ -252,11 +252,13 @@
+   display?: string;
+   onChange: (v: string) => void;
+ }) {
++  const inputId = useId();
+   const showError = value !== '' && !valid;
+   return (
+     <div>
+-      <label className="mb-1 block text-xs font-medium text-slate-600">{label}</label>
++      <label htmlFor={inputId} className="mb-1 block text-xs font-medium text-slate-600">{label}</label>
+       <input
++        id={inputId}
+         inputMode="numeric"
+         pattern="[0-9]*"
+         value={value}

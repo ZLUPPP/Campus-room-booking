@@ -1,0 +1,14 @@
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -62,7 +62,11 @@
+ ## Working rules
+ 
++- Evaluate one selected fictional room per request. Keep the existing open and blocked fixtures for AC3 coverage.
++- Use fictional data only. Do not read, add, print, or transmit secrets or real personal data.
++- Do not publish or deploy externally. Use the existing Bolt preview or documented local checks.
+ - Prefer pure functions for rules. Keep changes minimal.
+ - Use the `@/` alias for `src/` imports.
+ - At most two justified patterns; zero is acceptable.
+ - Never weaken or delete existing assertions to get a passing result.
++- Present a scoped diff before editing and obtain approval. Run test, build, lint and typecheck before recommending acceptance.
+ - Report every changed file, the rationale, and the exact commands run with their results. State limitations plainly.

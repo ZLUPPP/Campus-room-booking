@@ -1,0 +1,107 @@
+v26.11.1
+12.2.1
+$ npm ci
+
+added 289 packages, and audited 290 packages in 5s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+22 vulnerabilities (2 low, 6 moderate, 14 high)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+npm warn install-scripts 1 package had install scripts blocked because they are not covered by allowScripts:
+npm warn install-scripts   esbuild@0.21.5 (postinstall: node install.js)
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+npm notice
+npm notice New patch version of npm available! 12.2.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+exit=0
+$ npm test
+npm notice run vite-react-typescript-starter@0.0.0 test
+npm notice run node --test src/lib/availability.test.mjs
+▶ AC5 idle state
+  ✔ is idle when no room is selected (1.218813ms)
+  ✔ is idle when both inputs are empty or whitespace (0.162809ms)
+  ✔ reports malformed when only one input is empty (0.263232ms)
+✔ AC5 idle state (3.612376ms)
+▶ AC1 start must be strictly after the current time
+  ✔ rejects a start in the past (0.224574ms)
+  ✔ rejects a start equal to the current time (0.121113ms)
+  ✔ accepts a start one minute after the current time (0.144745ms)
+✔ AC1 start must be strictly after the current time (0.720051ms)
+▶ AC1 interval order and range
+  ✔ rejects an equal interval with the ordering reason only (0.201633ms)
+  ✔ rejects a reversed interval with the ordering reason only (0.117453ms)
+  ✔ accepts the full valid range boundary ending at 1440 (0.113382ms)
+  ✔ rejects an end beyond 1440 with the range reason only (0.151787ms)
+  ✔ rejects an overlong numeric out-of-range input with the range reason, not malformed (0.100742ms)
+✔ AC1 interval order and range (0.968661ms)
+▶ AC2 duration limit
+  ✔ accepts a 120-minute booking (0.115649ms)
+  ✔ rejects a 121-minute booking with the duration reason only (0.108525ms)
+✔ AC2 duration limit (0.319065ms)
+▶ AC3 blocked room
+  ✔ rejects a valid interval in a blocked room with the blocked reason (0.113494ms)
+✔ AC3 blocked room (0.204529ms)
+▶ AC4 overlaps use half-open intervals
+  ✔ rejects an exact match of an existing booking (0.164358ms)
+  ✔ rejects an interval contained within a booking (0.064012ms)
+  ✔ rejects an interval that spans a booking (0.065621ms)
+  ✔ rejects an interval that partially overlaps the start of a booking (0.073434ms)
+  ✔ rejects an interval that partially overlaps the end of a booking (0.063132ms)
+  ✔ accepts an interval whose end touches the start of a booking (0.04925ms)
+  ✔ accepts an interval whose start touches the end of a booking (0.150128ms)
+✔ AC4 overlaps use half-open intervals (0.877972ms)
+▶ AC1 raw input policy
+  ✔ accepts whole decimal values with surrounding whitespace (0.171215ms)
+  ✔ rejects inputs that are not strict whole decimals (0.261803ms)
+  ✔ parses only strict whole decimals (0.153301ms)
+✔ AC1 raw input policy (0.802749ms)
+▶ 1440 and time formatting
+  ✔ formats 1440 as the end of day (0.108265ms)
+  ✔ formats midnight, noon, and the current time (0.073653ms)
+✔ 1440 and time formatting (0.306142ms)
+▶ immutable fixtures
+  ✔ keeps fixtures deep-equal to their snapshot after evaluation (0.278453ms)
+  ✔ keeps fixtures frozen (0.09943ms)
+✔ immutable fixtures (0.505709ms)
+ℹ tests 28
+ℹ suites 9
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 145.081853
+exit=0
+$ npm run build
+npm notice run vite-react-typescript-starter@0.0.0 build
+npm notice run vite build
+vite v5.4.8 building for production...
+transforming...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ 1569 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.71 kB │ gzip:  0.39 kB
+dist/assets/index-BGSt4zoW.css   12.74 kB │ gzip:  3.11 kB
+dist/assets/index-YYnm9zoP.js   155.15 kB │ gzip: 50.24 kB
+✓ built in 1.54s
+exit=0
+$ npm run lint
+npm notice run vite-react-typescript-starter@0.0.0 lint
+npm notice run eslint .
+exit=0
+$ npm run typecheck
+npm notice run vite-react-typescript-starter@0.0.0 typecheck
+npm notice run tsc --noEmit -p tsconfig.app.json
+exit=0

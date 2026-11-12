@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Both inputs have distinct associated label IDs",
+    "pass": true
+  },
+  {
+    "name": "Idle status exists before entry",
+    "pass": true
+  },
+  {
+    "name": "120 minutes available inside live region",
+    "pass": true
+  },
+  {
+    "name": "121 minutes rejected inside atomic live region",
+    "pass": true
+  },
+  {
+    "name": "Start equal to now rejected",
+    "pass": true
+  },
+  {
+    "name": "Overlap rejected",
+    "pass": true
+  },
+  {
+    "name": "Touching endpoint accepted",
+    "pass": true
+  },
+  {
+    "name": "Original booking still visible",
+    "pass": true
+  },
+  {
+    "name": "Blocked room rejected",
+    "pass": true
+  },
+  {
+    "name": "Malformed input rejected on narrow layout",
+    "pass": true
+  }
+]

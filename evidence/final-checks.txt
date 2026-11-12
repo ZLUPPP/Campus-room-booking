@@ -1,0 +1,83 @@
+v26.11.1
+$ npm test
+npm notice run vite-react-typescript-starter@0.0.0 test
+npm notice run node --test src/lib/availability.test.mjs
+▶ AC5 idle state
+  ✔ is idle when no room is selected (1.184638ms)
+  ✔ is idle when both inputs are empty or whitespace (0.15887ms)
+  ✔ reports malformed when only one input is empty (0.247139ms)
+✔ AC5 idle state (2.596332ms)
+▶ AC1 start must be strictly after the current time
+  ✔ rejects a start in the past (0.225682ms)
+  ✔ rejects a start equal to the current time (0.125888ms)
+  ✔ accepts a start one minute after the current time (0.116019ms)
+✔ AC1 start must be strictly after the current time (0.693441ms)
+▶ AC1 interval order and range
+  ✔ rejects an equal interval with the ordering reason only (0.181826ms)
+  ✔ rejects a reversed interval with the ordering reason only (0.123628ms)
+  ✔ accepts the full valid range boundary ending at 1440 (0.109306ms)
+  ✔ rejects an end beyond 1440 with the range reason only (0.150371ms)
+  ✔ rejects an overlong numeric out-of-range input with the range reason, not malformed (0.098751ms)
+✔ AC1 interval order and range (0.950979ms)
+▶ AC2 duration limit
+  ✔ accepts a 120-minute booking (0.115148ms)
+  ✔ rejects a 121-minute booking with the duration reason only (0.082321ms)
+✔ AC2 duration limit (0.317859ms)
+▶ AC3 blocked room
+  ✔ rejects a valid interval in a blocked room with the blocked reason (0.109374ms)
+✔ AC3 blocked room (0.20091ms)
+▶ AC4 overlaps use half-open intervals
+  ✔ rejects an exact match of an existing booking (0.182558ms)
+  ✔ rejects an interval contained within a booking (0.071627ms)
+  ✔ rejects an interval that spans a booking (0.056359ms)
+  ✔ rejects an interval that partially overlaps the start of a booking (0.058621ms)
+  ✔ rejects an interval that partially overlaps the end of a booking (0.054758ms)
+  ✔ accepts an interval whose end touches the start of a booking (0.049223ms)
+  ✔ accepts an interval whose start touches the end of a booking (0.044531ms)
+✔ AC4 overlaps use half-open intervals (0.728078ms)
+▶ AC1 raw input policy
+  ✔ accepts whole decimal values with surrounding whitespace (0.091762ms)
+  ✔ rejects inputs that are not strict whole decimals (0.166952ms)
+  ✔ parses only strict whole decimals (0.128555ms)
+✔ AC1 raw input policy (0.492627ms)
+▶ 1440 and time formatting
+  ✔ formats 1440 as the end of day (0.068212ms)
+  ✔ formats midnight, noon, and the current time (0.048025ms)
+✔ 1440 and time formatting (0.190902ms)
+▶ immutable fixtures
+  ✔ keeps fixtures deep-equal to their snapshot after evaluation (0.224805ms)
+  ✔ keeps fixtures frozen (0.071467ms)
+✔ immutable fixtures (0.388063ms)
+ℹ tests 28
+ℹ suites 9
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 129.784698
+exit=0
+$ npm run build
+npm notice run vite-react-typescript-starter@0.0.0 build
+npm notice run vite build
+vite v5.4.8 building for production...
+transforming...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ 1569 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.71 kB │ gzip:  0.39 kB
+dist/assets/index-BGSt4zoW.css   12.74 kB │ gzip:  3.11 kB
+dist/assets/index-C5yPjz_0.js   155.21 kB │ gzip: 50.28 kB
+✓ built in 1.60s
+exit=0
+$ npm run lint
+npm notice run vite-react-typescript-starter@0.0.0 lint
+npm notice run eslint .
+exit=0
+$ npm run typecheck
+npm notice run vite-react-typescript-starter@0.0.0 typecheck
+npm notice run tsc --noEmit -p tsconfig.app.json
+exit=0
