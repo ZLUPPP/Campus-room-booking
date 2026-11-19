@@ -2,6 +2,8 @@ import { useId, useMemo, useState } from 'react';
 import { Clock, DoorClosed, CheckCircle2, XCircle, CalendarCheck, Building2 } from 'lucide-react';
 import { evaluate, parseMinutes, toTime, type Decision, type Room } from '@/lib/availability';
 
+import ExplanationPanel from './ExplanationPanel';
+
 const ROOMS: Room[] = [
   {
     id: 'room-a',
@@ -57,6 +59,7 @@ export default function App() {
               endDisplay={endValid ? toTime(endNum!) : undefined}
               decision={decision}
             />
+            <ExplanationPanel key={JSON.stringify([roomId, start, end])} room={room} start={start} end={end} now={CURRENT_TIME} />
           </div>
         </div>
 

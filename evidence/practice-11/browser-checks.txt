@@ -1,0 +1,23 @@
+Available 720-780: AvailableThe requested interval 720–780 (12:00 PM–1:00 PM) is valid and free.No booking has been saved or confirmed. | Mock-generated explanationAvailable. The requested time is free under the room rules.
+
+overlap: UnavailableOverlaps existing booking "Faculty Meeting" (600–660, 10:00 AM–11:00 AM). Touching endpoints are allowed. | Mock-generated explanationUnavailable. The requested time overlaps an existing booking.
+
+invalid order: UnavailableStart must be strictly earlier than end. | Mock-generated explanationUnavailable. The start must be earlier than the end.
+
+past: UnavailableStart must be strictly after the current time (540 = 9:00 AM). | Mock-generated explanationUnavailable. The start must be after the supplied current time.
+
+empty: UnavailableStart and end must be whole, non-negative minute values (0–1440). | Enter complete whole-minute values using at most four digits to request an explanation.
+
+overlong: UnavailableTimes must be within the same day: 0 ≤ start and end ≤ 1440.Start must be strictly earlier than end. | Enter complete whole-minute values using at most four digits to request an explanation.
+
+blocked: UnavailableThis room is currently blocked and cannot be booked. | Mock-generated explanationUnavailable. The selected room is blocked.
+
+error: UnavailableThis room is currently blocked and cannot be booked. | Rule-based fallbackUnavailable. The selected room is blocked.
+
+missing-key: UnavailableThis room is currently blocked and cannot be booked. | Rule-based fallbackUnavailable. The selected room is blocked.
+
+invalid-output: UnavailableThis room is currently blocked and cannot be booked. | Rule-based fallbackUnavailable. The selected room is blocked.
+
+timeout: UnavailableThis room is currently blocked and cannot be booked. | Rule-based fallbackUnavailable. The selected room is blocked.
+
+stale timeout after input/room change: UnavailableOverlaps existing booking "Faculty Meeting" (600–660, 10:00 AM–11:00 AM). Touching endpoints are allowed. | 

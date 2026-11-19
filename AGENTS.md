@@ -6,7 +6,7 @@ Guidance for agents working in this repository. This file is not loaded automati
 
 Smart Campus Room Availability checker. A single-page React app where a user selects one room, enters a start and end time in minutes, and sees whether the requested interval is Available or Unavailable.
 
-- Fictional fixtures only. No backend, auth, database, external API, analytics, saved bookings, or new features.
+- Fictional fixtures only. No backend, auth, database, external API, analytics, saved bookings, or unrelated features. Practice 11 authorizes an optional explanation using a local mock adapter.
 - Fixed current time: 540 minutes (9:00 AM). It is supplied as a constant, not read from the clock.
 - Checking availability never saves or confirms a booking. Fixtures must never be mutated.
 
@@ -23,11 +23,14 @@ docs/
   practice-09.md          submission report for the refactoring checkpoint
 src/
   main.tsx                React entry point
-  App.tsx                 fixtures, CURRENT_TIME, and all UI components
+  App.tsx                 fixtures, CURRENT_TIME, and checker UI
+  ExplanationPanel.tsx    optional explanation UI
   index.css               Tailwind entry styles
   vite-env.d.ts
   lib/
     availability.ts       pure booking rules: evaluate, parseMinutes, toTime, Room, Decision
+    explanation.ts        validated local mock adapter and safe fallback
+    explanation.test.mjs   explanation regression tests
     availability.test.mjs regression tests (Node built-in test runner and assert)
 .bolt/config.json
 ```
@@ -38,14 +41,14 @@ src/
 
 Run from the project root:
 
-- `npm test`: `node --test src/lib/availability.test.mjs`. Verified on Node v22.23.1 in this Bolt environment, which imports the TypeScript module directly without flags. Other Node versions are not verified.
+- `npm test`: `node --test src/lib/*.test.mjs`. Verified on Node v22.23.1 in this Bolt environment, which imports the TypeScript module directly without flags. Other Node versions are not verified.
 - `npm run build`: `vite build`
 - `npm run lint`: `eslint .`
 - `npm run typecheck`: `tsc --noEmit -p tsconfig.app.json`
 
 Do not claim tests were run unless a test command was actually executed and its output reviewed.
 
-Do not start a dev server from the shell.
+A local dev server may be used for browser verification; do not deploy externally.
 
 ## Booking rules (must be preserved)
 
@@ -66,3 +69,7 @@ Preserve the repaired Practice #08 behavior and the existing responsive layout. 
 - At most two justified patterns; zero is acceptable.
 - Never weaken or delete existing assertions to get a passing result.
 - Report every changed file, the rationale, and the exact commands run with their results. State limitations plainly.
+
+## Practice 11
+
+The deterministic evaluator owns the decision. Explain only structured context with a reason code. Validate input and output, bound latency, ignore stale results and use rule-based fallback. Keep model text untrusted and render it as text.

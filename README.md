@@ -1,8 +1,11 @@
-# Practice 10 — Smart Campus risk review
+# Practice 11 - Smart Campus explanations
 
-This repository contains the React app from Bolt Version 8. The two accessibility changes associate visible labels with the time fields and give the decision banner a live status role.
+The Practice 10 React prototype now has an optional **Explain availability** button.
+The pure evaluator remains authoritative; the explanation never saves bookings or
+changes availability. Fictional fixtures only; no login, database, API key or network
+model call. A local mock adapter returns a validated, two-sentence explanation.
 
-Use Node 26.11.1 for the same runtime as the recorded local checks.
+Use Node 26 (verified locally on 26.13.1), or the Node 22 runtime in Bolt.
 
 ```sh
 npm ci
@@ -13,4 +16,21 @@ npm run typecheck
 npm run dev
 ```
 
-Open the local address printed by Vite. The test logs, risk register, reviewed UI diff, browser checks and screenshots are in [evidence](evidence/). The AGENTS.md patch is a proposal awaiting review.
+Select Room A, enter 720 and 780, then click Explain availability. Open **Classroom
+failure simulation** to try timeout, API error, missing-key and invalid-output modes.
+Failures preserve the decision and display a clearly labelled rule-based fallback.
+
+Flow: raw inputs -> pure evaluator -> bounded structured context -> frozen snapshot
+-> mock adapter with deadline -> output allowlist -> separately labelled text.
+Input limits: four digits per time, room label 80 characters; output 240 characters,
+exact known explanation and no more than two sentences. Deadline: 800 ms.
+
+The mock deliberately accepts only canonical explanations. It is an adapter seam,
+not a live LLM integration; replacing it requires a separate server-side design and
+review. Three prompt variants are recorded for wording comparison; the mock ignores
+prompt wording, so identical mock responses do not prove real-model reliability.
+
+Existing Practice 10 evidence is in `evidence/`; Practice 11 checks and review are
+in `evidence/practice-11/`. The PDF report is supplied separately. This repository
+may require GitHub access; the report contains self-contained evidence and local
+startup instructions so assessment does not depend on access to the Bolt editor.
