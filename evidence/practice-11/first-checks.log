@@ -1,0 +1,101 @@
+npm notice run vite-react-typescript-starter@0.0.0 test
+npm notice run node --test src/lib/*.test.mjs
+▶ AC5 idle state
+  ✔ is idle when no room is selected (2.440409ms)
+  ✔ is idle when both inputs are empty or whitespace (0.187897ms)
+  ✔ reports malformed when only one input is empty (0.285796ms)
+✔ AC5 idle state (4.116534ms)
+▶ AC1 start must be strictly after the current time
+  ✔ rejects a start in the past (0.23704ms)
+  ✔ rejects a start equal to the current time (0.173757ms)
+  ✔ accepts a start one minute after the current time (0.141205ms)
+✔ AC1 start must be strictly after the current time (0.816051ms)
+▶ AC1 interval order and range
+  ✔ rejects an equal interval with the ordering reason only (0.218383ms)
+  ✔ rejects a reversed interval with the ordering reason only (0.198707ms)
+  ✔ accepts the full valid range boundary ending at 1440 (0.142753ms)
+  ✔ rejects an end beyond 1440 with the range reason only (0.233418ms)
+  ✔ rejects an overlong numeric out-of-range input with the range reason, not malformed (0.143553ms)
+✔ AC1 interval order and range (1.321989ms)
+▶ AC2 duration limit
+  ✔ accepts a 120-minute booking (0.129561ms)
+  ✔ rejects a 121-minute booking with the duration reason only (0.115656ms)
+✔ AC2 duration limit (0.365553ms)
+▶ AC3 blocked room
+  ✔ rejects a valid interval in a blocked room with the blocked reason (0.091539ms)
+✔ AC3 blocked room (0.191104ms)
+▶ AC4 overlaps use half-open intervals
+  ✔ rejects an exact match of an existing booking (0.200493ms)
+  ✔ rejects an interval contained within a booking (0.072314ms)
+  ✔ rejects an interval that spans a booking (0.060167ms)
+  ✔ rejects an interval that partially overlaps the start of a booking (0.064503ms)
+  ✔ rejects an interval that partially overlaps the end of a booking (0.055184ms)
+  ✔ accepts an interval whose end touches the start of a booking (0.050084ms)
+  ✔ accepts an interval whose start touches the end of a booking (0.04725ms)
+✔ AC4 overlaps use half-open intervals (0.73702ms)
+▶ AC1 raw input policy
+  ✔ accepts whole decimal values with surrounding whitespace (0.085875ms)
+  ✔ rejects inputs that are not strict whole decimals (0.647743ms)
+  ✔ parses only strict whole decimals (0.131456ms)
+✔ AC1 raw input policy (1.008625ms)
+▶ 1440 and time formatting
+  ✔ formats 1440 as the end of day (0.07992ms)
+  ✔ formats midnight, noon, and the current time (0.076025ms)
+✔ 1440 and time formatting (0.255433ms)
+▶ immutable fixtures
+  ✔ keeps fixtures deep-equal to their snapshot after evaluation (0.216929ms)
+  ✔ keeps fixtures frozen (0.066304ms)
+✔ immutable fixtures (0.387557ms)
+node:internal/modules/esm/resolve:241
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/zlup/Projects/uni/se/booking/src/lib/availability' imported from /home/zlup/Projects/uni/se/booking/src/lib/explanation.ts
+    at finalizeResolution (node:internal/modules/esm/resolve:241:11)
+    at moduleResolve (node:internal/modules/esm/resolve:846:10)
+    at defaultResolve (node:internal/modules/esm/resolve:973:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)
+    at #resolve (node:internal/modules/esm/loader:690:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:277:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:389:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/zlup/Projects/uni/se/booking/src/lib/availability'
+}
+
+Node.js v26.13.1
+✖ src/lib/explanation.test.mjs (101.304943ms)
+ℹ tests 29
+ℹ suites 9
+ℹ pass 28
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 140.114399
+
+✖ failing tests:
+
+test at src/lib/explanation.test.mjs:1:1
+✖ src/lib/explanation.test.mjs (101.304943ms)
+  'test failed'
+npm notice run vite-react-typescript-starter@0.0.0 build
+npm notice run vite build
+vite v5.4.8 building for production...
+transforming...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ 1571 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.71 kB │ gzip:  0.39 kB
+dist/assets/index-BSQNXnnT.css   12.98 kB │ gzip:  3.16 kB
+dist/assets/index-DM5-4oB_.js   159.84 kB │ gzip: 51.86 kB
+✓ built in 2.29s
+npm notice run vite-react-typescript-starter@0.0.0 lint
+npm notice run eslint .
+npm notice run vite-react-typescript-starter@0.0.0 typecheck
+npm notice run tsc --noEmit -p tsconfig.app.json

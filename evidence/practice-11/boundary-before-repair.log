@@ -1,0 +1,63 @@
+✔ available agrees with deterministic context (4.131863ms)
+✔ overlap agrees with deterministic context (0.958464ms)
+✔ blocked agrees with deterministic context (0.64554ms)
+✔ reversed agrees with deterministic context (0.623092ms)
+✔ past agrees with deterministic context (0.748874ms)
+✔ duration agrees with deterministic context (0.51045ms)
+✔ touching agrees with deterministic context (0.501051ms)
+✔ range agrees with deterministic context (0.471951ms)
+✔ empty input rejected (0.966462ms)
+✔ malformed input rejected (0.262787ms)
+✔ long input rejected (0.139694ms)
+✔ injection input rejected (0.131842ms)
+✔ decimal input rejected (0.078355ms)
+✔ timeout returns safe fallback (10.300582ms)
+✔ error returns safe fallback (0.429974ms)
+✔ missing-key returns safe fallback (0.172333ms)
+✔ invalid-output returns safe fallback (0.138388ms)
+✔ rejects oversized, HTML and malformed output (0.231664ms)
+✔ mock prompt comparison retains agreement for all three prompts (0.197597ms)
+✔ timeout bounds an adapter that ignores cancellation (10.902949ms)
+✖ rejects contradictory structured context before calling adapter (2.022277ms)
+✖ adapter cannot mutate the caller context or authoritative snapshot (1.117422ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 20
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 177.956846
+
+✖ failing tests:
+
+test at tmp/practice11-before/explanation.test.mjs:54:1
+✖ rejects contradictory structured context before calling adapter (2.022277ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///home/zlup/Documents/ChatGPT/Software%20Engineering/tmp/practice11-before/explanation.test.mjs:57:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid explanation context/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tmp/practice11-before/explanation.test.mjs:61:1
+✖ adapter cannot mutate the caller context or authoritative snapshot (1.117422ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/zlup/Documents/ChatGPT/Software%20Engineering/tmp/practice11-before/explanation.test.mjs:67:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
